@@ -8,10 +8,10 @@ import CollectionPreview from '../CollectionPreview/CollectionPreview';
 
 import './CollectionsOverview.styles.scss';
 
-const CollectionsOverview = ({ collections }) => (
-  <div className="collections-overview">
+const CollectionsOverview = ({ collections, ...otherProps }) => (
+  <div className='collections-overview'>
     {collections.map(({ id, ...otherCollectionProps }) => (
-      <CollectionPreview key={id} {...otherCollectionProps} />
+      <CollectionPreview key={id} {...otherCollectionProps} {...otherProps} />
     ))}
   </div>
 );

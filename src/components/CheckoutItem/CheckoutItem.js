@@ -9,12 +9,12 @@ import {
 
 import './CheckoutItem.styles.scss';
 
-const CheckoutItem = ({ cartItem, clearItemFromCart, addItem, removeItem }) => {
-  const { name, imageUrl, quantity, price } = cartItem;
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem;
   return (
     <div className="checkout-item">
       <div className="image-container">
-        <img alt="item" src={imageUrl} />
+        <img src={imageUrl} alt="item" />
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
@@ -26,12 +26,8 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, addItem, removeItem }) => {
           &#10095;
         </div>
       </span>
-
-      <span className="price">${price}</span>
-      <div
-        className="remove-button"
-        onClick={() => clearItemFromCart(cartItem)}
-      >
+      <span className="price">{price}</span>
+      <div className="remove-button" onClick={() => clearItem(cartItem)}>
         &#10005;
       </div>
     </div>
@@ -39,7 +35,7 @@ const CheckoutItem = ({ cartItem, clearItemFromCart, addItem, removeItem }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  clearItemFromCart: (item) => dispatch(clearItemFromCart(item)),
+  clearItem: (item) => dispatch(clearItemFromCart(item)),
   addItem: (item) => dispatch(addItem(item)),
   removeItem: (item) => dispatch(removeItem(item)),
 });
