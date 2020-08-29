@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { auth } from '../../firebase/firebase.utils';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cartSelectors';
 import { selectCurrentUser } from '../../redux/user/userSelectors';
-import { signOutStart, signOutSuccess } from '../../redux/user/userActions';
+import { signOutStart } from '../../redux/user/userActions';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
